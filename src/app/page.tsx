@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { ArticleList } from "@/components/article-list";
+import { Contact } from "@/components/contact";
 
 type Article = {
   title: string;
@@ -32,10 +33,12 @@ const articles: Article[] = [
 
 export default function Page() {
   return (
-    <div className="w-full py-32 text-lg font-light space-y-32">
+    <div className="w-full py-32 text-base md:text-lg font-light space-y-32">
       {/* Hello World Section */}
       <div className="space-y-6 px-6">
-        <p className="mb-14 tracking-[-0.015rem] font-medium">👋 Hello World</p>
+        <p className="mb-14 tracking-[-0.015rem] font-medium">
+          👋 Hello, World!
+        </p>
 
         <h1>
           My name is{" "}
@@ -52,51 +55,15 @@ export default function Page() {
         <p>Currently based in Montreal.</p>
       </div>
 
-      {/* Articles Section */}
       <div>
         <h2 className="px-6 tracking-tight mb-14 font-medium">
           Articles and Projects
         </h2>
-        <div className="space-y-3">
-          {articles.map((article, idx) => (
-            <div
-              key={idx}
-              className="px-6 py-3 rounded-xl transition-colors hover:bg-hovered"
-            >
-              <div className="flex items-center gap-3 mb-1">
-                <h3 className="font-medium tracking-tight">{article.title}</h3>
-                <p className="text-sm text-muted-foreground">{article.date}</p>
-              </div>
-              <p className="truncate text-muted-foreground">
-                {article.description}
-              </p>
-            </div>
-          ))}
-        </div>
+        <ArticleList articles={articles} />
       </div>
 
       {/* Contact Section */}
-      <div className="px-6 space-y-6">
-        <h2 className="tracking-tight mb-14 font-medium">Contact</h2>
-        <p className="leading-8">
-          Reach out to me on{" "}
-          <Link
-            className="underline underline-offset-4 decoration-1"
-            href={"#"}
-          >
-            LinkedIn
-          </Link>{" "}
-          even if it&apos;s just to say hi! For a more formal discussion, you
-          can also send me an email at{" "}
-          <Link
-            className="underline underline-offset-4 decoration-1"
-            href="mailto:pierrelouislet@gmail.com"
-          >
-            pierrelouislet@gmail.com
-          </Link>
-          !
-        </p>
-      </div>
+      <Contact />
     </div>
   );
 }
