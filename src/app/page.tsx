@@ -1,101 +1,102 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+type Article = {
+  title: string;
+  description: string;
+  date: string;
+  url: string;
+};
+
+const articles: Article[] = [
+  {
+    title: "Fine-tuning GPT-3 for Code Generation",
+    description:
+      "A step-by-step guide on how to fine-tune GPT-3 for code generation with OpenAI's API and vLLM library.",
+    date: "2021-10-08",
+    url: "https://pierrelouis.dev/blog/fine-tuning-gpt-3-for-code-generation",
+  },
+  {
+    title: "How to build a React Native app with Expo",
+    description:
+      "A step-by-step guide on how to build a React Native app with Expo.",
+    date: "2021-09-28",
+    url: "https://pierrelouis.dev/blog/how-to-build-a-react-native-app-with-expo",
+  },
+  {
+    title: "How to build a React app with Vite",
+    description: "A step-by-step guide on how to build a React app with Vite.",
+    date: "2021-09-18",
+    url: "https://pierrelouis.dev/blog/how-to-build-a-react-app-with-vite",
+  },
+];
+
+export default function Page() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="w-full py-32 text-lg font-light space-y-32">
+      {/* Hello World Section */}
+      <div className="space-y-6 px-6">
+        <p className="mb-14 tracking-[-0.015rem] font-medium">👋 Hello World</p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <h1>
+          My name is{" "}
+          <span className="font-medium tracking-tight">Pierre-Louis</span>,
+        </h1>
+
+        <p className="leading-8">
+          I am a <span className="font-medium">french</span> software engineer,
+          passionate about <span className="font-medium">innovation</span> and{" "}
+          <span className="font-medium">creation</span>; when I&apos;m not
+          programming, I enjoy trail running and writing articles!
+        </p>
+
+        <p>Currently based in Montreal.</p>
+      </div>
+
+      {/* Articles Section */}
+      <div>
+        <h2 className="px-6 tracking-tight mb-14 font-medium">
+          Articles and Projects
+        </h2>
+        <div className="space-y-3">
+          {articles.map((article, idx) => (
+            <div
+              key={idx}
+              className="px-6 py-3 rounded-xl transition-colors hover:bg-hovered"
+            >
+              <div className="flex items-center gap-3 mb-1">
+                <h3 className="font-medium tracking-tight">{article.title}</h3>
+                <p className="text-sm text-muted-foreground">{article.date}</p>
+              </div>
+              <p className="truncate text-muted-foreground">
+                {article.description}
+              </p>
+            </div>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      {/* Contact Section */}
+      <div className="px-6 space-y-6">
+        <h2 className="tracking-tight mb-14 font-medium">Contact</h2>
+        <p className="leading-8">
+          Reach out to me on{" "}
+          <Link
+            className="underline underline-offset-4 decoration-1"
+            href={"#"}
+          >
+            LinkedIn
+          </Link>{" "}
+          even if it&apos;s just to say hi! For a more formal discussion, you
+          can also send me an email at{" "}
+          <Link
+            className="underline underline-offset-4 decoration-1"
+            href="mailto:pierrelouislet@gmail.com"
+          >
+            pierrelouislet@gmail.com
+          </Link>
+          !
+        </p>
+      </div>
     </div>
   );
 }

@@ -1,21 +1,20 @@
+@import "@radix-ui/colors/sand.css";
+@import "@radix-ui/colors/orange.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+    --background: var(--sand-2);
+    --foreground: var(--sand-12);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    --muted-foreground: var(--sand-11);
+
+    --hovered-background: var(--sand-3);
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    color: var(--foreground);
+    background: var(--background);
 }

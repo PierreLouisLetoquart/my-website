@@ -11,8 +11,12 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "muted-foreground": "var(--muted-foreground)",
+      },
+      backgroundColor: {
+        hovered: "var(--hovered-background)",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;
