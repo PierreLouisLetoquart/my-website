@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 import { AppLayout } from "@/components/app-layout";
@@ -32,6 +33,7 @@ export default function RootLayout({
       >
         <AppLayout>{children}</AppLayout>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
