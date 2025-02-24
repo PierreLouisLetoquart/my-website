@@ -1,35 +1,6 @@
 import { ArticleList } from "@/components/article-list";
 import { Contact } from "@/components/contact";
-
-type Article = {
-  title: string;
-  description: string;
-  date: string;
-  url: string;
-};
-
-const articles: Article[] = [
-  {
-    title: "Fine-tuning GPT-3 for Code Generation",
-    description:
-      "A step-by-step guide on how to fine-tune GPT-3 for code generation with OpenAI's API and vLLM library.",
-    date: "2021-10-08",
-    url: "https://pierrelouis.dev/blog/fine-tuning-gpt-3-for-code-generation",
-  },
-  {
-    title: "How to build a React Native app with Expo",
-    description:
-      "A step-by-step guide on how to build a React Native app with Expo.",
-    date: "2021-09-28",
-    url: "https://pierrelouis.dev/blog/how-to-build-a-react-native-app-with-expo",
-  },
-  {
-    title: "How to build a React app with Vite",
-    description: "A step-by-step guide on how to build a React app with Vite.",
-    date: "2021-09-18",
-    url: "https://pierrelouis.dev/blog/how-to-build-a-react-app-with-vite",
-  },
-];
+import { projects } from "@/data/project-and-articles";
 
 export default function Page() {
   return (
@@ -59,7 +30,7 @@ export default function Page() {
         <h2 className="px-6 tracking-tight mb-14 font-medium">
           Articles and Projects
         </h2>
-        <ArticleList articles={articles} />
+        <ArticleList articles={projects} />
       </div>
 
       {/* Contact Section */}

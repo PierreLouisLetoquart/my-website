@@ -19,7 +19,7 @@ export function Contact() {
           Reach out to me on{" "}
           <Link
             className="underline underline-offset-4 decoration-1"
-            href={"#"}
+            href={"https://www.linkedin.com/in/pierrelouis-l%C3%A9toquart"}
           >
             LinkedIn
           </Link>{" "}
