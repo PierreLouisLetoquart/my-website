@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 import { AppLayout } from "@/components/app-layout";
@@ -30,6 +31,7 @@ export default function RootLayout({
         className={`${plusJakartaSans.variable} ${geistMono.variable} antialiased`}
       >
         <AppLayout>{children}</AppLayout>
+        <Analytics />
       </body>
     </html>
   );
