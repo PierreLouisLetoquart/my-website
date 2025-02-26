@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 import { AppLayout } from "@/components/app-layout";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-jakarta-sans",
@@ -27,11 +28,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${plusJakartaSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AppLayout>{children}</AppLayout>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <AppLayout>{children}</AppLayout>
+        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
       </body>
