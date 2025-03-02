@@ -42,19 +42,19 @@ export function SocialButtons() {
   return (
     <div className="flex items-center gap-3">
       <Slot className="size-14 rounded-lg bg-[var(--sand-4)] border border-[var(--sand-7)] grid place-items-center">
-        <Link href={"#"}>
+        <Link href={"https://github.com/PierreLouisLetoquart"}>
           <Github className="size-[1.2rem]" />
         </Link>
       </Slot>
 
       <Slot className="size-14 rounded-lg bg-[var(--sand-4)] border border-[var(--sand-7)] grid place-items-center">
-        <Link href={"#"}>
+        <Link href={"https://www.linkedin.com/in/pierrelouis-l%C3%A9toquart"}>
           <Linkedin className="size-[1.2rem]" />
         </Link>
       </Slot>
 
       <Slot className="size-14 rounded-lg bg-[var(--sand-4)] border border-[var(--sand-7)] grid place-items-center">
-        <Link href={"#"}>
+        <Link href="mailto:pierrelouislet@gmail.com">
           <Mail className="size-[1.2rem]" />
         </Link>
       </Slot>
